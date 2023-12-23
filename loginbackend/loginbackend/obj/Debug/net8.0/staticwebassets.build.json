@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "TF5tgZJYuDnLO5DZIKmUjRm+/wJJjBhc+R+CWs95DUQ=",
+  "Source": "loginbackend",
+  "BasePath": "_content/loginbackend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
