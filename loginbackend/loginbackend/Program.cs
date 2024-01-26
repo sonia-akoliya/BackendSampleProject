@@ -1,5 +1,9 @@
-var builder = WebApplication.CreateBuilder(args);
+using loginbackend.DataContext;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
+var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 // Add services to the container.
 builder.Services.AddControllers();
 
@@ -9,8 +13,9 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Your API", Version = "v1" });
 });
-
-// Configure CORS
+builder.Services.AddDbContext<LoginContext>(options => options.UseSqlServer("Server=(localdb)\\local;Database=UserApp;Integrated Security=True;"));
+//builder.Services.AddDbContext<LoginContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+// sConfigure CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowOrigin",
