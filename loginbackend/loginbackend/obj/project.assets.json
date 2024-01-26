@@ -433,11 +433,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SAKSHAM AKOLIYA\\Documents\\api\\loginbackend\\loginbackend\\loginbackend.csproj",
+      "projectUniqueName": "C:\\Users\\SAKSHAM AKOLIYA\\Documents\\BackendSampleProject\\loginbackend\\loginbackend\\loginbackend.csproj",
       "projectName": "loginbackend",
-      "projectPath": "C:\\Users\\SAKSHAM AKOLIYA\\Documents\\api\\loginbackend\\loginbackend\\loginbackend.csproj",
+      "projectPath": "C:\\Users\\SAKSHAM AKOLIYA\\Documents\\BackendSampleProject\\loginbackend\\loginbackend\\loginbackend.csproj",
       "packagesPath": "C:\\Users\\SAKSHAM AKOLIYA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SAKSHAM AKOLIYA\\Documents\\api\\loginbackend\\loginbackend\\obj\\",
+      "outputPath": "C:\\Users\\SAKSHAM AKOLIYA\\Documents\\BackendSampleProject\\loginbackend\\loginbackend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\SAKSHAM AKOLIYA\\AppData\\Roaming\\NuGet\\NuGet.Config",
