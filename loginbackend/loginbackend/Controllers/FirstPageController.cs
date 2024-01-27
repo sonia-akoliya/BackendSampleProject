@@ -19,9 +19,11 @@ namespace loginbackend.Controllers
         [HttpPost("login")]
         public IActionResult Login([FromBody] UserInfoModel loginModel)
         {
-            if (loginModel.UserName == "user" && loginModel.Password == "password")
+            var user = _context.UserInfo.FirstOrDefault(u => u.UserName == loginModel.UserName && u.Password == loginModel.Password);
+
+            if (user != null)
             {
-                return Ok(new { Token = "yourAuthToken" });
+                return Ok(new { Token = "yourAuthToken", UserInfo = user });
             }
             else
             {
