@@ -13,6 +13,8 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Your API", Version = "v1" });
 });
+var connectionString = configuration.GetConnectionString("sonia");
+
 builder.Services.AddDbContext<LoginContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 // sConfigure CORS
 builder.Services.AddCors(options =>
