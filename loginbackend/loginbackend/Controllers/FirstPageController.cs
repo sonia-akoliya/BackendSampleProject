@@ -16,10 +16,10 @@ namespace loginbackend.Controllers
             _context = context;
         }
 
-        [HttpPost("login")]
-        public IActionResult Login([FromBody] UserInfoModel loginModel)
+        [HttpGet("login")]
+        public IActionResult Login(string userName , string password)
         {
-            var user = _context.UserInfo.FirstOrDefault(u => u.UserName == loginModel.UserName && u.Password == loginModel.Password);
+            var user = _context.UserInfo.FirstOrDefault(u => u.UserName == userName && u.Password == password);
 
             if (user != null)
             {
@@ -45,5 +45,42 @@ namespace loginbackend.Controllers
                 return BadRequest(ModelState);
             }
         }
+
+        [HttpPut("update/{id}")]
+        public async Task<IActionResult> UpdateUser(int id, [FromBody] UserInfoModel updatedUser)
+        {
+            var existingUser = await _context.UserInfo.FindAsync(id);
+
+            if (existingUser == null)
+            {
+                return NotFound();
+            }
+
+            existingUser.UserName = updatedUser.UserName;
+            existingUser.Password = updatedUser.Password;
+
+            _context.UserInfo.Update(existingUser);
+            await _context.SaveChangesAsync();
+
+            return Ok(existingUser);
+        }
+
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            var userToDelete = await _context.UserInfo.FindAsync(id);
+
+            if (userToDelete == null)
+            {
+                return NotFound();
+            }
+
+            _context.UserInfo.Remove(userToDelete);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { Message = "User deleted successfully" });
+        }
+
+
     }
 }
